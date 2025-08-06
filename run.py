@@ -37,8 +37,8 @@ def check_architecture():
 
 def run_main_module():
     try:
-        import main  # main.cpython-312.so
-        main.main()
+        import main  # Assuming this is your compiled .so file
+        main.main()  # Entry point defined in your main.py before Cythonizing
     except ImportError as e:
         print("[❗] Import error:", e)
     except AttributeError:
@@ -62,21 +62,6 @@ def main():
     else:
         print("\n[❗] Unknown device architecture. Can't proceed.")
 
-if __name__ == "__main__":
-    main()    print("[*] Checking device architecture...")
-    time.sleep(1)
-
-    arch = check_architecture()
-    print(f"[✔] Detected architecture: {arch}")
-
-    if arch == '64-bit':
-        print("\n[+] Device supported! Launching tool...\n")
-        time.sleep(1)
-        run_main_module()
-    elif arch == '32-bit':
-        print("\n[❌] Sorry bro, 32-bit devices are not supported 😞")
-    else:
-        print("\n[❗] Unknown device architecture. Cannot continue.")
-
+# 🔥 Entry point
 if __name__ == "__main__":
     main()
